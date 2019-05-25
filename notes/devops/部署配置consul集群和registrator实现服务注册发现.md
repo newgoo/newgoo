@@ -1,7 +1,7 @@
 部署配置consul集群和registrator实现服务注册发现
 ---
-* consul集群部署
-    * 主机需求
+### consul集群部署
+#### 主机需求
     
     名字|IP
     ---|---
@@ -12,11 +12,13 @@
 
     ps:由于简化，就没有搞那么多虚拟机,直接新建docker的网络`docker network create --subnet=172.10.0.0/16 mynetwork`
     
-    * docker部署consul集群
-        * consul-server1
-    ```
+#### docker部署consul集群  
+
+* consul-server1
+
+    ```sh
     docker run -d \
-    --name=consul-server1 \
+     --name=consul-server1 \
      --net=mynetwork \
      --restart=always \
      -h consul-server1 \
@@ -29,10 +31,11 @@
      -client 0.0.0.0 \
      -ui
      ```
-        * consul-server2
-     ```
+* consul-server2
+
+     ```sh
      docker run -d \
-    --name=consul-server2 \
+     --name=consul-server2 \
      --net=mynetwork \
      --restart=always \
      -h consul-server2 \
@@ -46,10 +49,11 @@
      -client 0.0.0.0 \
      -ui
      ```
-        * consul-server3
+* consul-server3
+
      ```
      docker run -d \
-    --name=consul-server3 \
+     --name=consul-server3 \
      --net=mynetwork \
      --restart=always \
      -h consul-server3 \
@@ -63,7 +67,8 @@
      -client 0.0.0.0 \
      -ui
      ```
-        * consul-client1 
+* consul-client1 
+
      ```
      docker run -d \
     --name=consul-client1 \
@@ -82,4 +87,4 @@
     -client 0.0.0.0 \
     -ui
      ```
-     ps: 由于我们使用的是docker网络，我们本地是无法直接使用容器的端口，所以在client1 中将容器的端口暴露出来，以供外部使用
+ ps: 由于我们使用的是docker网络，我们本地是无法直接使用容器的端口，所以在client1 中将容器的端口暴露出来，以供外部使用
