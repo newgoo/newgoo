@@ -3,12 +3,12 @@
 ### consul集群部署
 #### 主机需求
     
-    名字|IP
-    ---|---
-    consul-server1|172.10.0.2
-    consul-server2|172.10.0.3
-    consul-server3|172.10.0.4
-    consul-client1|172.10.0.5
+名字|IP
+---|---
+consul-server1|172.10.0.2
+consul-server2|172.10.0.3
+consul-server3|172.10.0.4
+consul-client1|172.10.0.5
 
 ps:由于简化，就没有搞那么多虚拟机,直接新建docker的网络  
 `docker network create --subnet=172.10.0.0/16 mynetwork`
