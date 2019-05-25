@@ -199,10 +199,10 @@ Commercial support is available at
 ```
 ps: 这里能访问，是在启动consul-client的时候后将端口暴露出来，在本机可以访问，也可以通过浏览器的方式查看consul服务的状态`http://127.0.0.1:8500/ui/dc1/services`
 
-* 测试consul是否能正常服务发现(dns方式)  
-    ps: 先前已经将53/udp端口暴露出来，所以只需要将dns地址填写我的本机地址(192.168.0.251)就行了
-  测试命令
-  `docker run --net=mynetwork --dns=192.168.0.251 --rm -it appropriate/curl curl nginx.service.consul`
+* 测试consul是否能正常服务发现(dns方式)    
+    ps: 先前已经将53/udp端口暴露出来，所以只需要将dns地址填写我的本机地址(192.168.0.251)就行了  
+  测试命令  
+  `docker run --net=mynetwork --dns=192.168.0.251 --rm -it appropriate/curl curl nginx.service.consul`  
   可以看到返回的结果和先前的是一样
 ```html
 <!DOCTYPE html>
@@ -232,7 +232,9 @@ Commercial support is available at
 </html>
 ```
 
-* 部署多个服务，consul会给我们做负载均衡
+* consul会给我们做负载均衡  
 我们都知道dns可以做负载均衡，那么问题来了，我们使用consul做dns服务发现，那是否就可以做负载均能呢？ 答案是肯定的，这里就不多赘述的，感兴趣的朋友可以去尝试一下
 
 #### 总结  
+* consul负载均衡的微服务应用有很多策略和技术，这里只是简单地说明了其中一种比较常用的
+* consul+registrator可以做到不侵入代码的情况就可以做到服务的注册发现
