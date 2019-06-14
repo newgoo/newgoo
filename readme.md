@@ -5,6 +5,7 @@ Newgoo的个人学习笔记
 
 #### 运维
 * [1.部署配置consul集群和registrator实现服务注册发现](notes/devops/部署配置consul集群和registrator实现服务注册发现.md)
+* [2.raft算法的简单逻辑](notes/devops/raft算法.md)
 
 
 ### License
